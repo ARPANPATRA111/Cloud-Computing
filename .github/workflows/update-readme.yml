@@ -1,7 +1,7 @@
 name: Update README Progress
 
 # This workflow runs on two triggers:
-# 1. A push to the 'main' branch, but ONLY if files inside the 'modules/' directory were changed.
+# 1. A push to the 'main' branch, but ONLY if files inside 'modules/' or 'AZ-900/modules/' were changed.
 # 2. A manual trigger ('workflow_dispatch') from the GitHub Actions tab.
 on:
   push:
@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - "modules/**.md"
+      - "AZ-900/modules/**.md"
   workflow_dispatch:
 
 jobs:
@@ -34,84 +35,134 @@ jobs:
         id: generate_readme
         run: |
           python3 <<'PY'
-          import os, re, math, sys
+          import os
+          import re
+          import math
+          import sys
 
-          modules_dir = "modules"
-          if not os.path.isdir(modules_dir):
-              print(f"Directory '{modules_dir}' not found. Exiting.")
-              sys.exit(0)
-
-          module_titles = [
-              "Module 1 - Introduction to the Cloud",
-              "Module 2 - Compute in the Cloud",
-              "Module 3 - Exploring Compute Services",
-              "Module 4 - Going Global",
-              "Module 5 - Networking",
-              "Module 6 - Storage",
-              "Module 7 - Databases",
-              "Module 8 - AI, ML and Data Analytics",
-              "Module 9 - Security",
-              "Module 10 - Monitoring, Compliance and Governance in AWS Cloud",
-              "Module 11 - Pricing and Support",
-              "Module 12 - Migrating to the AWS Cloud",
-              "Module 13 - Well-Architected Solutions"
-          ]
-
-          total = len(module_titles)
-          completed = 0
-          in_progress = 0
-          table_rows = []
-
-          # This regex finds a line starting with 'status:' (case-insensitive)
-          # and captures the text that follows.
           status_re = re.compile(r"status\s*:\s*(.+)", flags=re.IGNORECASE)
 
-          for idx, title in enumerate(module_titles, start=1):
+          def build_tracker(title, subtitle, modules_dir, module_titles):
+            if not os.path.isdir(modules_dir):
+              return None
+
+            total = len(module_titles)
+            completed = 0
+            in_progress = 0
+            table_rows = []
+
+            for idx, module_title in enumerate(module_titles, start=1):
               fname = f"module{idx:02d}.md"
               fpath = os.path.join(modules_dir, fname)
               status_text = "⬜ Not Started"
 
               if os.path.isfile(fpath):
-                  with open(fpath, "r", encoding="utf-8") as fh:
-                      content = fh.read()
+                with open(fpath, "r", encoding="utf-8") as fh:
+                  content = fh.read()
 
-                  m = status_re.search(content)
-                  if m:
-                      status_candidate = m.group(1).strip()
-                      s_low = status_candidate.lower()
+                m = status_re.search(content)
+                if m:
+                  status_candidate = m.group(1).strip()
+                  s_low = status_candidate.lower()
 
-                      if "✅" in status_candidate or "completed" in s_low:
-                          status_text = "✅ Completed"
-                          completed += 1
-                      elif "🟡" in status_candidate or "in progress" in s_low:
-                          status_text = "🟡 In Progress"
-                          in_progress += 1
+                  if "✅" in status_candidate or "completed" in s_low:
+                    status_text = "✅ Completed"
+                    completed += 1
+                  elif "🟡" in status_candidate or "in progress" in s_low:
+                    status_text = "🟡 In Progress"
+                    in_progress += 1
 
               link = f"[Notes](<{modules_dir}/{fname}>)" if os.path.isfile(fpath) else "—"
-              table_rows.append(f"| {idx} | {title} | {status_text} | {link} |")
+              table_rows.append(f"| {idx} | {module_title} | {status_text} | {link} |")
 
-          not_started = total - completed - in_progress
+            not_started = total - completed - in_progress
+            effective = completed + 0.5 * in_progress
+            percent = math.floor((effective / total) * 100) if total else 0
+            badge = f"![Progress](https://img.shields.io/badge/Progress-{percent}%25-blue)"
 
-          # Progress is calculated with "In Progress" modules counting as half-complete.
-          effective = completed + 0.5 * in_progress
-          percent = math.floor((effective / total) * 100)
-
-          badge = f"![Progress](https://img.shields.io/badge/Progress-{percent}%25-blue)"
-
-          readme_content = (
-              "# ☁ AWS Cloud Practitioner Essentials – Learning Tracker\n\n"
-              "Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.\n\n"
-              "***\n\n"
-              "## 📊 Overall Progress\n"
+            section = (
+              f"## {title}\n"
+              f"{subtitle}\n\n"
+                f"### {title.split(' - ')[0]} Overall Progress\n\n"
               f"{badge}\n\n"
               f"**Completed:** {completed}/{total} • **In Progress:** {in_progress} • **Not Started:** {not_started}\n\n"
-              "***\n\n"
-              "## 📂 Modules & Status\n"
-              "| #  | Module Name | Status | Link |\n"
-              "|----|-------------|--------|------|\n"
+                f"### {title.split(' - ')[0]} Modules & Status\n\n"
+                "| # | Module Name | Status | Link |\n"
+                "| --- | --- | --- | --- |\n"
               + "\n".join(table_rows)
               + "\n"
+            )
+
+            return section
+
+          aws_titles = [
+            "Module 1 - Introduction to the Cloud",
+            "Module 2 - Compute in the Cloud",
+            "Module 3 - Exploring Compute Services",
+            "Module 4 - Going Global",
+            "Module 5 - Networking",
+            "Module 6 - Storage",
+            "Module 7 - Databases",
+            "Module 8 - AI, ML and Data Analytics",
+            "Module 9 - Security",
+            "Module 10 - Monitoring, Compliance and Governance in AWS Cloud",
+            "Module 11 - Pricing and Support",
+            "Module 12 - Migrating to the AWS Cloud",
+            "Module 13 - Well-Architected Solutions",
+          ]
+
+          azure_titles = [
+            "Module 1 - Describe Cloud Computing",
+            "Module 2 - Describe the Benefits of Using Cloud Services",
+            "Module 3 - Describe Cloud Service Types",
+            "Module 4 - Describe Core Architectural Components of Azure",
+            "Module 5 - Describe Azure Compute and Networking Services",
+            "Module 6 - Describe Azure Storage Services",
+            "Module 7 - Describe Azure Identity, Access, and Security",
+            "Module 8 - Describe Cost Management in Azure",
+            "Module 9 - Describe Features and Tools in Azure for Governance and Compliance",
+            "Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources",
+            "Module 11 - Describe Monitoring Tools in Azure",
+          ]
+
+          aws_section = build_tracker(
+            "☁ AWS Cloud Practitioner Essentials - Learning Tracker",
+            "Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.",
+            "modules",
+            aws_titles,
           )
+
+          azure_section = build_tracker(
+            "🔷 Azure Fundamentals (AZ-900) - Learning Tracker",
+            "Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.",
+            "AZ-900/modules",
+            azure_titles,
+          )
+
+          sections = [
+            "# Cloud Learning Journey Tracker\n",
+            "Progress is auto-generated from status lines inside module note files.\n",
+            "\n",
+            "## AZ-900 Resources\n",
+            "- [Concise Notes](<AZ-900/az900-concise-notes.md>)\n",
+            "- [Visual Course Map](<AZ-900/az.excalidraw>)\n",
+            "\n",
+            "***\n\n",
+          ]
+
+          if aws_section:
+            sections.append(aws_section)
+            sections.append("\n***\n\n")
+
+          if azure_section:
+            sections.append(azure_section)
+            sections.append("\n")
+
+          if not aws_section and not azure_section:
+            print("No recognized module directories found. Exiting.")
+            sys.exit(0)
+
+          readme_content = "".join(sections)
 
           with open("README.md", "w", encoding="utf-8") as fh:
               fh.write(readme_content)
