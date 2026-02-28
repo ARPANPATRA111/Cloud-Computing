@@ -1,0 +1,1 @@
+In this folder, I will add all the notes and materials I use while preparing for the AZ-900 exam. I will also try to share key insights, such as how to quickly identify a topic based on the keywords in my notes.
