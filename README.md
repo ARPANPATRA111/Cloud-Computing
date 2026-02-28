@@ -1,19 +1,28 @@
-# ☁ AWS Cloud Practitioner Essentials – Learning Tracker
+# Cloud Learning Journey Tracker
 
-Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
+Progress is auto-generated from status lines inside module note files.
+
+## AZ-900 Resources
+
+- [Concise Notes](<AZ-900/az900-concise-notes.md>)
+- [Visual Course Map](<AZ-900/az.excalidraw>)
 
 ***
 
-## 📊 Overall Progress
+## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
+
+Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
+
+### ☁ AWS Overall Progress
+
 ![Progress](https://img.shields.io/badge/Progress-50%25-blue)
 
 **Completed:** 6/13 • **In Progress:** 1 • **Not Started:** 6
 
-***
+### ☁ AWS Modules & Status
 
-## 📂 Modules & Status
-| #  | Module Name | Status | Link |
-|----|-------------|--------|------|
+| # | Module Name | Status | Link |
+| --- | --- | --- | --- |
 | 1 | Module 1 - Introduction to the Cloud | ✅ Completed | [Notes](<modules/module01.md>) |
 | 2 | Module 2 - Compute in the Cloud | ✅ Completed | [Notes](<modules/module02.md>) |
 | 3 | Module 3 - Exploring Compute Services | ✅ Completed | [Notes](<modules/module03.md>) |
@@ -27,3 +36,31 @@ Automatically updated progress for the **AWS Cloud Practitioner Essentials** cou
 | 11 | Module 11 - Pricing and Support | ⬜ Not Started | — |
 | 12 | Module 12 - Migrating to the AWS Cloud | ⬜ Not Started | — |
 | 13 | Module 13 - Well-Architected Solutions | ⬜ Not Started | — |
+
+***
+
+## 🔷 Azure Fundamentals (AZ-900) - Learning Tracker
+
+Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.
+
+### 🔷 Azure Overall Progress
+
+![Progress](https://img.shields.io/badge/Progress-4%25-blue)
+
+**Completed:** 0/11 • **In Progress:** 1 • **Not Started:** 10
+
+### 🔷 Azure Modules & Status
+
+| # | Module Name | Status | Link |
+| --- | --- | --- | --- |
+| 1 | Module 1 - Describe Cloud Computing | 🟡 In Progress | [Notes](<AZ-900/modules/module01.md>) |
+| 2 | Module 2 - Describe the Benefits of Using Cloud Services | ⬜ Not Started | [Notes](<AZ-900/modules/module02.md>) |
+| 3 | Module 3 - Describe Cloud Service Types | ⬜ Not Started | [Notes](<AZ-900/modules/module03.md>) |
+| 4 | Module 4 - Describe Core Architectural Components of Azure | ⬜ Not Started | [Notes](<AZ-900/modules/module04.md>) |
+| 5 | Module 5 - Describe Azure Compute and Networking Services | ⬜ Not Started | [Notes](<AZ-900/modules/module05.md>) |
+| 6 | Module 6 - Describe Azure Storage Services | ⬜ Not Started | [Notes](<AZ-900/modules/module06.md>) |
+| 7 | Module 7 - Describe Azure Identity, Access, and Security | ⬜ Not Started | [Notes](<AZ-900/modules/module07.md>) |
+| 8 | Module 8 - Describe Cost Management in Azure | ⬜ Not Started | [Notes](<AZ-900/modules/module08.md>) |
+| 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ⬜ Not Started | [Notes](<AZ-900/modules/module09.md>) |
+| 10 | Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources | ⬜ Not Started | [Notes](<AZ-900/modules/module10.md>) |
+| 11 | Module 11 - Describe Monitoring Tools in Azure | ⬜ Not Started | [Notes](<AZ-900/modules/module11.md>) |
