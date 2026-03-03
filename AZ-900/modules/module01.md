@@ -1,6 +1,6 @@
 ﻿# Module 1 - Describe Cloud Computing
 
-Status: 🟡 In Progress
+Status: ✅ Completed
 
 ## Exam Objective
 
