@@ -19,6 +19,19 @@ cloud computing, its shared responsibility model and how cloud economics work. a
 - Fixed pricing/commitment: Pay a predictable price for reserved or committed capacity.
 - Serverless: Execution model where infrastructure management is abstracted and billing is usage-based.
 
+## Key Concepts You Must Know
+
+- On-prem to IaaS to PaaS to SaaS means customer responsibility decreases as provider responsibility increases.
+- Cloud benefits include agility, faster provisioning, elasticity, global reach, and reduced hardware management.
+- Serverless indicators for exam questions: event-driven, stateless, ephemeral, auto-scale, pay-per-execution.
+- Azure serverless examples include Azure Functions, Azure Logic Apps, and Azure Event Grid.
+
+## Serverless vs PaaS (High-Value Comparison)
+
+- Similarity: Both remove low-level infrastructure management.
+- Difference 1: PaaS app runtime is typically always available, serverless runs on trigger.
+- Difference 2: PaaS scaling is often configured, serverless scaling is automatic and granular.
+
 ## Quick Checklist
 
-- [ ] I can define cloud computing, public/private/hybrid cloud, and serverless.
+- [x] I can define cloud computing, public/private/hybrid cloud, and serverless.
