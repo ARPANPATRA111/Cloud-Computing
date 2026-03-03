@@ -32,6 +32,26 @@ cloud computing, its shared responsibility model and how cloud economics work. a
 - Difference 1: PaaS app runtime is typically always available, serverless runs on trigger.
 - Difference 2: PaaS scaling is often configured, serverless scaling is automatic and granular.
 
+## Decision Guide
+
+- Use public cloud when speed and scalability are priority and strict physical control is not required.
+- Use private cloud when strict control, legacy dependencies, or compliance constraints dominate.
+- Use hybrid when migration is gradual or some workloads must remain on-prem.
+- Use serverless when workloads are event-based, intermittent, and you want minimal ops overhead.
+
+## Common Exam Traps
+
+- Availability is not the same as uptime.
+- Serverless does not mean zero servers; it means server management is abstracted.
+- Hybrid cloud is not a separate cloud provider; it is an operating model across environments.
+
+## Rapid Review
+
+- Shared responsibility in one line: Provider secures the cloud platform, customer secures workload configuration and data usage.
+- CapEx vs OpEx in one line: Buy upfront vs pay as you consume.
+
 ## Quick Checklist
 
 - [x] I can define cloud computing, public/private/hybrid cloud, and serverless.
+- [x] I can explain shared responsibility across IaaS, PaaS, and SaaS.
+- [x] I can distinguish CapEx, OpEx, and consumption-based pricing.
