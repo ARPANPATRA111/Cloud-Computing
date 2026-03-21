@@ -1,9 +1,13 @@
 # Cloud Learning Journey Tracker
-
 Progress is auto-generated from status lines inside module note files.
 
-## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
+## AZ-900 Resources
+- [Concise Notes](<AZ-900/az900-concise-notes.md>)
+- [Visual Course Map](<AZ-900/az.excalidraw>)
 
+***
+
+## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
 Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
 
 ### ☁ AWS Cloud Practitioner Essentials Overall Progress
@@ -30,15 +34,16 @@ Automatically updated progress for the **AWS Cloud Practitioner Essentials** cou
 | 12 | Module 12 - Migrating to the AWS Cloud | ⬜ Not Started | — |
 | 13 | Module 13 - Well-Architected Solutions | ⬜ Not Started | — |
 
-## 🔷 Azure Fundamentals (AZ-900) - Learning Tracker
+***
 
+## 🔷 Azure Fundamentals (AZ-900) - Learning Tracker
 Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
 
-![Progress](https://img.shields.io/badge/Progress-18%25-blue)
+![Progress](https://img.shields.io/badge/Progress-22%25-blue)
 
-**Completed:** 2/11 • **In Progress:** 0 • **Not Started:** 9
+**Completed:** 2/11 • **In Progress:** 1 • **Not Started:** 8
 
 ### 🔷 Azure Fundamentals (AZ-900) Modules & Status
 
@@ -46,7 +51,7 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | --- | --- | --- | --- |
 | 1 | Module 1 - Describe Cloud Computing | ✅ Completed | [Notes](<AZ-900/modules/module01.md>) |
 | 2 | Module 2 - Describe the Benefits of Using Cloud Services | ✅ Completed | [Notes](<AZ-900/modules/module02.md>) |
-| 3 | Module 3 - Describe Cloud Service Types | ⬜ Not Started | — |
+| 3 | Module 3 - Describe Cloud Service Types | 🟡 In Progress | [Notes](<AZ-900/modules/module03.md>) |
 | 4 | Module 4 - Describe Core Architectural Components of Azure | ⬜ Not Started | — |
 | 5 | Module 5 - Describe Azure Compute and Networking Services | ⬜ Not Started | — |
 | 6 | Module 6 - Describe Azure Storage Services | ⬜ Not Started | — |
@@ -55,3 +60,4 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ⬜ Not Started | — |
 | 10 | Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources | ⬜ Not Started | — |
 | 11 | Module 11 - Describe Monitoring Tools in Azure | ⬜ Not Started | — |
+
