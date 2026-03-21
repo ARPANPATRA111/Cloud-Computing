@@ -41,16 +41,16 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
 
-![Progress](https://img.shields.io/badge/Progress-9%25-blue)
+![Progress](https://img.shields.io/badge/Progress-18%25-blue)
 
-**Completed:** 1/11 • **In Progress:** 0 • **Not Started:** 10
+**Completed:** 2/11 • **In Progress:** 0 • **Not Started:** 9
 
 ### 🔷 Azure Fundamentals (AZ-900) Modules & Status
 
 | # | Module Name | Status | Link |
 | --- | --- | --- | --- |
 | 1 | Module 1 - Describe Cloud Computing | ✅ Completed | [Notes](<AZ-900/modules/module01.md>) |
-| 2 | Module 2 - Describe the Benefits of Using Cloud Services | ⬜ Not Started | — |
+| 2 | Module 2 - Describe the Benefits of Using Cloud Services | ✅ Completed | [Notes](<AZ-900/modules/module02.md>) |
 | 3 | Module 3 - Describe Cloud Service Types | ⬜ Not Started | — |
 | 4 | Module 4 - Describe Core Architectural Components of Azure | ⬜ Not Started | — |
 | 5 | Module 5 - Describe Azure Compute and Networking Services | ⬜ Not Started | — |
