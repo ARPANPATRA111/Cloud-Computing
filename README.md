@@ -1,13 +1,9 @@
 # Cloud Learning Journey Tracker
+
 Progress is auto-generated from status lines inside module note files.
 
-## AZ-900 Resources
-- [Concise Notes](<AZ-900/az900-concise-notes.md>)
-- [Visual Course Map](<AZ-900/az.excalidraw>)
-
-***
-
 ## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
+
 Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
 
 ### ☁ AWS Cloud Practitioner Essentials Overall Progress
@@ -34,9 +30,8 @@ Automatically updated progress for the **AWS Cloud Practitioner Essentials** cou
 | 12 | Module 12 - Migrating to the AWS Cloud | ⬜ Not Started | — |
 | 13 | Module 13 - Well-Architected Solutions | ⬜ Not Started | — |
 
-***
-
 ## 🔷 Azure Fundamentals (AZ-900) - Learning Tracker
+
 Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
@@ -60,4 +55,3 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ⬜ Not Started | — |
 | 10 | Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources | ⬜ Not Started | — |
 | 11 | Module 11 - Describe Monitoring Tools in Azure | ⬜ Not Started | — |
-
