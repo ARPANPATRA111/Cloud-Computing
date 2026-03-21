@@ -1,6 +1,6 @@
 # Module 3 - Describe Cloud Service Types
 
-Status: 🟡 In Progress
+Status: ✅ Completed
 
 ## Exam Objective
 
