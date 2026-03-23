@@ -41,9 +41,9 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
 
-![Progress](https://img.shields.io/badge/Progress-31%25-blue)
+![Progress](https://img.shields.io/badge/Progress-54%25-blue)
 
-**Completed:** 3/11 • **In Progress:** 1 • **Not Started:** 7
+**Completed:** 6/11 • **In Progress:** 0 • **Not Started:** 5
 
 ### 🔷 Azure Fundamentals (AZ-900) Modules & Status
 
@@ -52,9 +52,9 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | 1 | Module 1 - Describe Cloud Computing | ✅ Completed | [Notes](<AZ-900/modules/module01.md>) |
 | 2 | Module 2 - Describe the Benefits of Using Cloud Services | ✅ Completed | [Notes](<AZ-900/modules/module02.md>) |
 | 3 | Module 3 - Describe Cloud Service Types | ✅ Completed | [Notes](<AZ-900/modules/module03.md>) |
-| 4 | Module 4 - Describe Core Architectural Components of Azure | 🟡 In Progress | [Notes](<AZ-900/modules/module04.md>) |
-| 5 | Module 5 - Describe Azure Compute and Networking Services | ⬜ Not Started | — |
-| 6 | Module 6 - Describe Azure Storage Services | ⬜ Not Started | — |
+| 4 | Module 4 - Describe Core Architectural Components of Azure | ✅ Completed | [Notes](<AZ-900/modules/module04.md>) |
+| 5 | Module 5 - Describe Azure Compute and Networking Services | ✅ Completed | [Notes](<AZ-900/modules/module05.md>) |
+| 6 | Module 6 - Describe Azure Storage Services | ✅ Completed | [Notes](<AZ-900/modules/module06.md>) |
 | 7 | Module 7 - Describe Azure Identity, Access, and Security | ⬜ Not Started | — |
 | 8 | Module 8 - Describe Cost Management in Azure | ⬜ Not Started | — |
 | 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ⬜ Not Started | — |
