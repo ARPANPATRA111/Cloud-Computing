@@ -1,6 +1,6 @@
 # Module 9 - Describe Features and Tools in Azure for Governance and Compliance
 
-Status: ⬜ Not Started
+Status: ✅ Completed
 
 ## Exam Objective
 
@@ -42,6 +42,6 @@ Use Azure governance tools to enforce standards, control changes, and support co
 
 ## Quick Checklist
 
-- [ ] I can define policy, initiative, compliance, lock, and tag.
-- [ ] I can explain policy vs RBAC clearly.
-- [ ] I can map governance controls to risk/cost/compliance goals.
+- [x] I can define policy, initiative, compliance, lock, and tag.
+- [x] I can explain policy vs RBAC clearly.
+- [x] I can map governance controls to risk/cost/compliance goals.

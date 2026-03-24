@@ -1,6 +1,6 @@
 # Module 8 - Describe Cost Management in Azure
 
-Status: ⬜ Not Started
+Status: ✅ Completed
 
 ## Exam Objective
 
