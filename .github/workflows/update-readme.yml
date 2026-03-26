@@ -140,12 +140,14 @@ jobs:
           )
 
           sections = [
-            "# Cloud Learning Journey Tracker\n",
-            "\n",
-            "## AZ-900 Resources\n",
+            "# Cloud Learning Journey Tracker\n\n",
+            "## AZ-900 Resources\n\n",
             "- [Concise Notes](<AZ-900/az900-concise-notes.md>)\n",
-            "- [Visual Course Map](<AZ-900/az.excalidraw>)\n",
-            "\n",
+            "- [Certificate Verification](https://learn.microsoft.com/en-us/users/arpanpatra-3804/credentials/df31299649b7c8d0)\n",
+            "\n### AZ-900 Certificate Badge\n\n",
+            "![Microsoft Certified Fundamentals Badge](AZ-900/microsoft-certified-fundamentals-badge.svg)\n\n",
+            "### AZ-900 Visuals\n\n",
+            "![AZ-900 Visual Map](AZ-900/visuals.png)\n\n",
             "\n\n",
           ]
 

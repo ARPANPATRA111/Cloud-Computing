@@ -1,12 +1,22 @@
-# Cloud Learning Journey Tracker
+﻿# Cloud Learning Journey Tracker
 
 ## AZ-900 Resources
+
 - [Concise Notes](<AZ-900/az900-concise-notes.md>)
-- [Visual Course Map](<AZ-900/az.excalidraw>)
+- [Certificate Verification](https://learn.microsoft.com/en-us/users/arpanpatra-3804/credentials/df31299649b7c8d0)
 
+### AZ-900 Certificate Badge
 
+![Microsoft Certified Fundamentals Badge](AZ-900/microsoft-certified-fundamentals-badge.svg)
+
+### AZ-900 Visuals
+
+![AZ-900 Visual Map](AZ-900/visuals.png)
+
+***
 
 ## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
+
 Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
 
 ### ☁ AWS Cloud Practitioner Essentials Overall Progress
@@ -36,6 +46,7 @@ Automatically updated progress for the **AWS Cloud Practitioner Essentials** cou
 ***
 
 ## 🔷 Azure Fundamentals (AZ-900) - Learning Tracker
+
 Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
@@ -59,4 +70,3 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ✅ Completed | [Notes](<AZ-900/modules/module09.md>) |
 | 10 | Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources | ✅ Completed | [Notes](<AZ-900/modules/module10.md>) |
 | 11 | Module 11 - Describe Monitoring Tools in Azure | ✅ Completed | [Notes](<AZ-900/modules/module11.md>) |
-
