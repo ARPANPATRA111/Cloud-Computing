@@ -8,7 +8,11 @@
 ### AZ-900 Certificate Badge
 
 <!-- markdownlint-disable MD033 -->
-<img src="AZ-900/microsoft-certified-fundamentals-badge.svg" alt="Microsoft Certified Fundamentals Badge" width="120" />
+<a href="https://learn.microsoft.com/api/credentials/share/en-us/ArpanPatra-3804/DF31299649B7C8D0?sharingId=583BDF8556DF2F7F" target="_blank" rel="noopener noreferrer">
+    <img src="AZ-900/microsoft-certified-fundamentals-badge.svg" 
+         alt="Microsoft Certified: Azure Fundamentals" 
+         width="120" />
+</a>
 <!-- markdownlint-enable MD033 -->
 
 ### AZ-900 Visuals
