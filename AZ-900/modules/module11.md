@@ -1,6 +1,6 @@
 # Module 11 - Describe Monitoring Tools in Azure
 
-Status: ⬜ Not Started
+Status: ✅ Completed
 
 ## Exam Objective
 
@@ -41,6 +41,6 @@ Understand Azure observability and health tooling to monitor resources, respond 
 
 ## Quick Checklist
 
-- [ ] I can define metrics, logs, alerts, and observability.
-- [ ] I can explain Azure Monitor, Log Analytics, Service Health, and Advisor.
-- [ ] I can distinguish monitoring from governance in exam scenarios.
+- [X] I can define metrics, logs, alerts, and observability.
+- [X] I can explain Azure Monitor, Log Analytics, Service Health, and Advisor.
+- [X] I can distinguish monitoring from governance in exam scenarios.

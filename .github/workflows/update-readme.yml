@@ -141,13 +141,12 @@ jobs:
 
           sections = [
             "# Cloud Learning Journey Tracker\n",
-            "Progress is auto-generated from status lines inside module note files.\n",
             "\n",
             "## AZ-900 Resources\n",
             "- [Concise Notes](<AZ-900/az900-concise-notes.md>)\n",
             "- [Visual Course Map](<AZ-900/az.excalidraw>)\n",
             "\n",
-            "***\n\n",
+            "\n\n",
           ]
 
           if aws_section:
