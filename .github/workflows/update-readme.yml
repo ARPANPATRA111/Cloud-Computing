@@ -1,187 +1,142 @@
-name: Update README Progress
+name: Generate Progress Snapshot
 
-# This workflow runs on two triggers:
-# 1. A push to the 'main' branch, but ONLY if files inside 'modules/' or 'AZ-900/modules/' were changed.
-# 2. A manual trigger ('workflow_dispatch') from the GitHub Actions tab.
+# Non-destructive workflow: this never edits README.md.
+# Run manually from the Actions tab when you want a fresh progress snapshot.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - "modules/**.md"
-      - "AZ-900/modules/**.md"
   workflow_dispatch:
 
 jobs:
-  update-readme:
-    # This condition prevents an infinite loop. The workflow will not run if the commit is from the bot itself.
-    if: ${{ github.actor != 'github-actions[bot]' }}
+  generate-progress-snapshot:
     runs-on: ubuntu-latest
-    
-    # Granting write permission to the GITHUB_TOKEN so the action can push changes back to the repository.
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: "3.x"
 
-      - name: Generate README Progress
-        id: generate_readme
+      - name: Generate README.autogen.md (preview only)
         run: |
           python3 <<'PY'
           import os
           import re
           import math
-          import sys
 
           status_re = re.compile(r"status\s*:\s*(.+)", flags=re.IGNORECASE)
 
           def build_tracker(title, subtitle, modules_dir, module_titles):
-            if not os.path.isdir(modules_dir):
-              return None
+              total = len(module_titles)
+              completed = 0
+              in_progress = 0
+              rows = []
 
-            total = len(module_titles)
-            completed = 0
-            in_progress = 0
-            table_rows = []
+              for idx, module_title in enumerate(module_titles, start=1):
+                  fname = f"module{idx:02d}.md"
+                  fpath = os.path.join(modules_dir, fname)
+                  status_text = "⬜ Not Started"
 
-            for idx, module_title in enumerate(module_titles, start=1):
-              fname = f"module{idx:02d}.md"
-              fpath = os.path.join(modules_dir, fname)
-              status_text = "⬜ Not Started"
+                  if os.path.isfile(fpath):
+                      with open(fpath, "r", encoding="utf-8") as fh:
+                          content = fh.read()
 
-              if os.path.isfile(fpath):
-                with open(fpath, "r", encoding="utf-8") as fh:
-                  content = fh.read()
+                      m = status_re.search(content)
+                      if m:
+                          status_candidate = m.group(1).strip()
+                          low = status_candidate.lower()
+                          if "✅" in status_candidate or "completed" in low:
+                              status_text = "✅ Completed"
+                              completed += 1
+                          elif "🟡" in status_candidate or "in progress" in low:
+                              status_text = "🟡 In Progress"
+                              in_progress += 1
 
-                m = status_re.search(content)
-                if m:
-                  status_candidate = m.group(1).strip()
-                  s_low = status_candidate.lower()
+                  link = f"[Notes](<{modules_dir}/{fname}>)" if os.path.isfile(fpath) else "—"
+                  rows.append(f"| {idx} | {module_title} | {status_text} | {link} |")
 
-                  if "✅" in status_candidate or "completed" in s_low:
-                    status_text = "✅ Completed"
-                    completed += 1
-                  elif "🟡" in status_candidate or "in progress" in s_low:
-                    status_text = "🟡 In Progress"
-                    in_progress += 1
+              not_started = total - completed - in_progress
+              effective = completed + 0.5 * in_progress
+              percent = math.floor((effective / total) * 100) if total else 0
+              badge = f"![Progress](https://img.shields.io/badge/Progress-{percent}%25-blue)"
 
-              link = f"[Notes](<{modules_dir}/{fname}>)" if os.path.isfile(fpath) else "—"
-              table_rows.append(f"| {idx} | {module_title} | {status_text} | {link} |")
-
-            not_started = total - completed - in_progress
-            effective = completed + 0.5 * in_progress
-            percent = math.floor((effective / total) * 100) if total else 0
-            badge = f"![Progress](https://img.shields.io/badge/Progress-{percent}%25-blue)"
-
-            section = (
-              f"## {title}\n"
-              f"{subtitle}\n\n"
-                f"### {title.split(' - ')[0]} Overall Progress\n\n"
-              f"{badge}\n\n"
-              f"**Completed:** {completed}/{total} • **In Progress:** {in_progress} • **Not Started:** {not_started}\n\n"
-                f"### {title.split(' - ')[0]} Modules & Status\n\n"
-                "| # | Module Name | Status | Link |\n"
-                "| --- | --- | --- | --- |\n"
-              + "\n".join(table_rows)
-              + "\n"
-            )
-
-            return section
+              section = (
+                  f"## {title}\n\n"
+                  f"{subtitle}\n\n"
+                  f"### {title.split(' - ')[0]} Overall Progress\n\n"
+                  f"{badge}\n\n"
+                  f"**Completed:** {completed}/{total} • **In Progress:** {in_progress} • **Not Started:** {not_started}\n\n"
+                  f"### {title.split(' - ')[0]} Modules & Status\n\n"
+                  "| # | Module Name | Status | Link |\n"
+                  "| --- | --- | --- | --- |\n"
+                  + "\n".join(rows)
+                  + "\n"
+              )
+              return section
 
           aws_titles = [
-            "Module 1 - Introduction to the Cloud",
-            "Module 2 - Compute in the Cloud",
-            "Module 3 - Exploring Compute Services",
-            "Module 4 - Going Global",
-            "Module 5 - Networking",
-            "Module 6 - Storage",
-            "Module 7 - Databases",
-            "Module 8 - AI, ML and Data Analytics",
-            "Module 9 - Security",
-            "Module 10 - Monitoring, Compliance and Governance in AWS Cloud",
-            "Module 11 - Pricing and Support",
-            "Module 12 - Migrating to the AWS Cloud",
-            "Module 13 - Well-Architected Solutions",
+              "Module 1 - Introduction to the Cloud",
+              "Module 2 - Compute in the Cloud",
+              "Module 3 - Exploring Compute Services",
+              "Module 4 - Going Global",
+              "Module 5 - Networking",
+              "Module 6 - Storage",
+              "Module 7 - Databases",
+              "Module 8 - AI, ML and Data Analytics",
+              "Module 9 - Security",
+              "Module 10 - Monitoring, Compliance and Governance in AWS Cloud",
+              "Module 11 - Pricing and Support",
+              "Module 12 - Migrating to the AWS Cloud",
+              "Module 13 - Well-Architected Solutions",
           ]
 
           azure_titles = [
-            "Module 1 - Describe Cloud Computing",
-            "Module 2 - Describe the Benefits of Using Cloud Services",
-            "Module 3 - Describe Cloud Service Types",
-            "Module 4 - Describe Core Architectural Components of Azure",
-            "Module 5 - Describe Azure Compute and Networking Services",
-            "Module 6 - Describe Azure Storage Services",
-            "Module 7 - Describe Azure Identity, Access, and Security",
-            "Module 8 - Describe Cost Management in Azure",
-            "Module 9 - Describe Features and Tools in Azure for Governance and Compliance",
-            "Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources",
-            "Module 11 - Describe Monitoring Tools in Azure",
+              "Module 1 - Describe Cloud Computing",
+              "Module 2 - Describe the Benefits of Using Cloud Services",
+              "Module 3 - Describe Cloud Service Types",
+              "Module 4 - Describe Core Architectural Components of Azure",
+              "Module 5 - Describe Azure Compute and Networking Services",
+              "Module 6 - Describe Azure Storage Services",
+              "Module 7 - Describe Azure Identity, Access, and Security",
+              "Module 8 - Describe Cost Management in Azure",
+              "Module 9 - Describe Features and Tools in Azure for Governance and Compliance",
+              "Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources",
+              "Module 11 - Describe Monitoring Tools in Azure",
           ]
-
-          aws_section = build_tracker(
-            "☁ AWS Cloud Practitioner Essentials - Learning Tracker",
-            "Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.",
-            "modules",
-            aws_titles,
-          )
 
           azure_section = build_tracker(
-            "🔷 Azure Fundamentals (AZ-900) - Learning Tracker",
-            "Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparation.",
-            "AZ-900/modules",
-            azure_titles,
+              "🔷 Azure Fundamentals (AZ-900) - Learning Tracker",
+              "Auto-generated snapshot for **Azure Fundamentals (AZ-900)** progress.",
+              "AZ-900/modules",
+              azure_titles,
           )
 
-          sections = [
-            "# Cloud Learning Journey Tracker\n\n",
-            "## AZ-900 Resources\n\n",
-            "- [Concise Notes](<AZ-900/az900-concise-notes.md>)\n",
-            "- [Certificate Verification](https://learn.microsoft.com/en-us/users/arpanpatra-3804/credentials/df31299649b7c8d0)\n",
-            "\n### AZ-900 Certificate Badge\n\n",
-            "![Microsoft Certified Fundamentals Badge](AZ-900/microsoft-certified-fundamentals-badge.svg)\n\n",
-            "### AZ-900 Visuals\n\n",
-            "![AZ-900 Visual Map](AZ-900/visuals.png)\n\n",
-            "\n\n",
-          ]
+          aws_section = build_tracker(
+              "☁ AWS Cloud Practitioner Essentials - Learning Tracker",
+              "Auto-generated snapshot for **AWS Cloud Practitioner Essentials** progress.",
+              "modules",
+              aws_titles,
+          )
 
-          if aws_section:
-            sections.append(aws_section)
-            sections.append("\n***\n\n")
+          content = (
+              "# Progress Snapshot (Autogenerated)\n\n"
+              "This file is generated by workflow and does not modify README.md.\n\n"
+              + azure_section
+              + "\n***\n\n"
+              + aws_section
+          )
 
-          if azure_section:
-            sections.append(azure_section)
-            sections.append("\n")
+          with open("README.autogen.md", "w", encoding="utf-8") as f:
+              f.write(content)
 
-          if not aws_section and not azure_section:
-            print("No recognized module directories found. Exiting.")
-            sys.exit(0)
-
-          readme_content = "".join(sections)
-
-          with open("README.md", "w", encoding="utf-8") as fh:
-              fh.write(readme_content)
-
-          print("README.md updated.")
+          print("Generated README.autogen.md")
           PY
 
-      - name: Commit and Push Changes
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Check if the README.md file was actually changed by the script
-          if ! git diff --quiet README.md; then
-            echo "Changes detected in README.md. Committing..."
-            git add README.md
-            git commit -m "docs: auto-update course progress"
-            git push
-          else
-            echo "No changes to README.md. Skipping commit."
-          fi
+      - name: Upload Snapshot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: readme-autogen-preview
+          path: README.autogen.md
