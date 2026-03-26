@@ -1,11 +1,10 @@
 # Cloud Learning Journey Tracker
-Progress is auto-generated from status lines inside module note files.
 
 ## AZ-900 Resources
 - [Concise Notes](<AZ-900/az900-concise-notes.md>)
 - [Visual Course Map](<AZ-900/az.excalidraw>)
 
-***
+
 
 ## ☁ AWS Cloud Practitioner Essentials - Learning Tracker
 Automatically updated progress for the **AWS Cloud Practitioner Essentials** course.
@@ -41,9 +40,9 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 
 ### 🔷 Azure Fundamentals (AZ-900) Overall Progress
 
-![Progress](https://img.shields.io/badge/Progress-90%25-blue)
+![Progress](https://img.shields.io/badge/Progress-100%25-blue)
 
-**Completed:** 10/11 • **In Progress:** 0 • **Not Started:** 1
+**Completed:** 11/11 • **In Progress:** 0 • **Not Started:** 0
 
 ### 🔷 Azure Fundamentals (AZ-900) Modules & Status
 
@@ -59,5 +58,5 @@ Automatically updated progress for your **Azure Fundamentals (AZ-900)** preparat
 | 8 | Module 8 - Describe Cost Management in Azure | ✅ Completed | [Notes](<AZ-900/modules/module08.md>) |
 | 9 | Module 9 - Describe Features and Tools in Azure for Governance and Compliance | ✅ Completed | [Notes](<AZ-900/modules/module09.md>) |
 | 10 | Module 10 - Describe Features and Tools for Managing and Deploying Azure Resources | ✅ Completed | [Notes](<AZ-900/modules/module10.md>) |
-| 11 | Module 11 - Describe Monitoring Tools in Azure | ⬜ Not Started | [Notes](<AZ-900/modules/module11.md>) |
+| 11 | Module 11 - Describe Monitoring Tools in Azure | ✅ Completed | [Notes](<AZ-900/modules/module11.md>) |
 
